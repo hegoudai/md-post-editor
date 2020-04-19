@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: md-post-editor-backend
+server:
+  port: 4001
+
+
+
