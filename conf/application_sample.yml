@@ -1,0 +1,6 @@
+aliyun:
+  oss:
+    endpoint: <endpoint>
+    accessKeyId: <accessKeyId>
+    accessKeySecret: <accessKeySecret>
+    bucket: <bucket>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.goudai.mpe</groupId>
+    <artifactId>parent</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Md Post Editor</name>
+    <description>A rubbish project </description>
+    <inceptionYear>2020</inceptionYear>
+
+    <properties>
+        <!-- maven properties -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <dependency.locations.enabled>false</dependency.locations.enabled>
+
+    </properties>
+
+    <modules>
+        <module>mpe-backend</module>
+        <module>mpe-frontend</module>
+        <module>mpe-assembly</module>
+    </modules>
+
+
+</project>

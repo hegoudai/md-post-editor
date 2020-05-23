@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.goudai.mpe</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>mpe-assembly</artifactId>
+    <packaging>pom</packaging>
+    <name>Md Post Editor - Assembly</name>
+
+
+    <properties>
+        <rw.file.permission>0644</rw.file.permission>
+        <rwx.file.permission>0755</rwx.file.permission>
+        <skip.lib.artifact>true</skip.lib.artifact>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.goudai.mpe</groupId>
+            <artifactId>mpe-backend</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>bin-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>
+                                    ${project.basedir}/src/main/assembly/bin-package.xml
+                                </descriptor>
+                            </descriptors>
+                            <finalName>mpe-${project.version}-bin</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <tarLongFileMode>posix</tarLongFileMode>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
