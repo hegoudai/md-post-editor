@@ -32,3 +32,6 @@ build/
 
 ### frontend build file ###
 src/main/resources/static/
+
+### application-dev ###
+application-dev.yml

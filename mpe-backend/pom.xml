@@ -16,6 +16,24 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<activatedProperties>dev</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>release</id>
+			<properties>
+				<activatedProperties>release</activatedProperties>
+			</properties>
+		</profile>
+	</profiles>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -76,6 +94,16 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<!--use maven properties in yml-->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/*dev.yml</exclude>
+                </excludes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 
 </project>

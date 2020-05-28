@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.nio.channels.SocketChannel;
-import java.util.*;
-
 /**
  * @author hegoudai@qq.com
  * @date 2020/4/19 16:59
@@ -40,10 +37,11 @@ public class FileUploadController {
         try {
             return AliOssUtils.upload(endpoint, accessKeyId, accessKeySecret, bucket, path,
                     FileUtils.getExtension(image.getOriginalFilename()), image.getInputStream());
-        }catch (Exception e) {
+        } catch (Exception e) {
             LOG.error("Failed to upload: {}", e);
             e.printStackTrace();
             return "failed";
         }
     }
+
 }

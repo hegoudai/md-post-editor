@@ -19,7 +19,7 @@ public class AliOssUtils {
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
 
         String fileName = UUID.randomUUID().toString().replace("-", "");
-        path = path == null ? "" : path + "/";
+        path = (path == null || path.length() == 0) ? "" : path + "/";
         String objectName = path + fileName + "." + fileType;
         ossClient.putObject(bucket, objectName, inputStream);
         ossClient.shutdown();

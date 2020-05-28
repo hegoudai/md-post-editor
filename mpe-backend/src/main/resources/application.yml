@@ -1,8 +1,8 @@
 spring:
   application:
     name: md-post-editor-backend
+  profiles:
+    active: @activatedProperties@
+
 server:
   port: 4001
-
-
-
