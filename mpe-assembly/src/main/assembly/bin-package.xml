@@ -27,6 +27,7 @@
                 <include>LICENSE.txt</include>
                 <include>README.md</include>
                 <include>README_packaging.md</include>
+                <include>/conf/*</include>
             </includes>
             <fileMode>${rw.file.permission}</fileMode>
         </fileSet>

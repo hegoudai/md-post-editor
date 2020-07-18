@@ -4,6 +4,7 @@ import com.goudai.mpe.util.AliOssUtils;
 import com.goudai.mpe.util.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,22 +21,14 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadController {
     private static final Logger LOG = LoggerFactory.getLogger(FileUploadController.class);
 
-    @Value("${aliyun.oss.endpoint}")
-    private String endpoint;
-    @Value("${aliyun.oss.accessKeyId}")
-    private String accessKeyId;
-    @Value("${aliyun.oss.accessKeySecret}")
-    private String accessKeySecret;
-    @Value("${aliyun.oss.bucket}")
-    private String bucket;
-
+    @Autowired
+    private AliOssUtils ossUtils;
 
     @PostMapping("upload")
     public String upload(@RequestParam("image") MultipartFile image,
                          @RequestParam(value = "path", required = false) String path) {
-        LOG.info("Uploading file: {}", endpoint, accessKeyId, accessKeySecret, bucket, path);
         try {
-            return AliOssUtils.upload(endpoint, accessKeyId, accessKeySecret, bucket, path,
+            return ossUtils.upload(path,
                     FileUtils.getExtension(image.getOriginalFilename()), image.getInputStream());
         } catch (Exception e) {
             LOG.error("Failed to upload: {}", e);
